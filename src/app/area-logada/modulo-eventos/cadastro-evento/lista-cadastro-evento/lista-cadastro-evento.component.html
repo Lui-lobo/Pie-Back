@@ -1,0 +1,42 @@
+<div class="text-center mt-5 fw-bolder" *ngIf="!listadeEventos[0]">
+  <p><i class="bi bi-exclamation-circle-fill"></i>Sem eventos cadastrados.</p>
+</div>
+
+<div class="mt-3" *ngIf="listadeEventos[0]">
+  <div class="bg-light p-3 mb-3 rounded" *ngFor="let evento of listadeEventos; let i = index"   >
+    <h3>{{evento.nomeEvento}}</h3>
+    <hr>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><strong>Data:</strong> {{evento.dataHoraEvento}}</td>
+          <td><strong>Local:</strong> {{evento.localEvento}}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Descrição:</strong> {{evento.descricao}}</td>
+        </tr>
+        <tr>
+          <td><strong>Quantidade de Vagas:</strong> {{evento.qtdVagas}}</td>
+          <td><strong>Vagas Disponíveis:</strong> {{evento.qtdVagas - evento.qtdReservas}}</td>
+        </tr>
+        <tr>
+          <td><strong>Limite de Reserva por Usuário :</strong>  {{evento.limiteReservaPorUsuario}}</td>
+          <td><strong>Status do Evento:</strong> {{evento.status}}</td>
+        </tr>
+        <tr *ngIf="evento.necessidadeDeReserva">
+          <td><strong>Quantidade de Fileiras:</strong>  {{evento.qtdFileiras}}</td>
+          <td><strong>Assentos por Fileira:</strong> {{evento.qtdAssentosPorFileira}}</td>
+        </tr>
+        <tr>
+          <td><strong>Evento criado em:</strong> {{evento.dataHoraCriacaoEvento}}</td>
+          <td><strong>Evento criado por :</strong>  {{evento.nomeUsuarioCriadorEvento}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex gap-3 justify-content-end">
+    <button class="btn btn-warning" [attr.data-idEvento]="evento.idEvento" (click)="carregaFormularioBtnAlterar(evento.idEvento)" (click)="carregarLayoutBtnAlterar(i)">Alterar</button>
+    <button class="btn btn-danger" >Excluir</button>
+    </div>
+  </div>
+</div>

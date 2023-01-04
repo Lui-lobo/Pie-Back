@@ -1,0 +1,63 @@
+.cabec{
+  background-color: #3ad6ba;
+  color:  #1c2838;
+  font-family: 'Zilla Slab', serif;;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+}
+.cabec__nav{
+  background-color: inherit;
+}
+.cabec__nav--logo{
+  font-size: 2.5rem;
+  padding: 0%;
+
+}
+.cabec__nav--menu-hamburguer{
+  color:  #1c2838;
+}
+
+.login__botao-entrar{
+  background-color:  #1c2838;
+  color: 'Zilla Slab', serif;;
+}
+
+.login__botao-entrar:hover{
+  background-color: #3ad6ba;
+  border-color: #3ad6ba;
+}
+.form-check-input:disabled{
+  border-color:  #1c2838;
+}
+
+.form-check-input:checked{
+  border:  #1c2838;
+  background-color:  #1c2838 ;
+}
+
+.cabec__cadastro--formulario, .cabec__esqueceuSenha--formulario{
+  display: none;
+}
+
+
+
+
+@media screen and (max-width:767px){
+
+  .cabec__nav--logo{
+      font-size: 2rem;
+  }
+
+
+}
+@media screen and (min-width:992px){
+
+  .cabec__nav--logo{
+      font-size: 2rem;
+  }
+  .cabec__login--formulario{
+      width: 17rem;
+  }
+
+}

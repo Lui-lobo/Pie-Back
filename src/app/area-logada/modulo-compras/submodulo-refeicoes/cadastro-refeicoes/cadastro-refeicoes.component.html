@@ -1,0 +1,16 @@
+<section class="container fundo-area-logada">
+  <h2 class="text-white row pt-4 fs-1">Cadastro de Refeições</h2>
+  <div class="row gap-3">
+
+    <div class="col-12 col-xl-5  quadro-listagem-evento fundo-destaque  my-3 rounded h-100">
+      <app-form-cadastro-produtos [submodulo]="submodulo" [dadosRecebidosBtnAlterar]="dadosFormulario" ></app-form-cadastro-produtos>
+    </div>
+
+    <div class="col-12 col-xl-6  quadro-listagem-evento fundo-destaque  my-3 rounded">
+      <app-lista-produtos (enviaDadosAoFormularioProdutos)="recebeDadosBtnAlterarForm($event)" (enviaDadosAoModalExcluirProduto)="recebeDadosBtnExcluirProduto($event)" ></app-lista-produtos>    </div>
+
+  </div>
+
+  <app-modal-exclui-produto  [dadosRecebidosBtnExcluirProduto]="dadosModal"></app-modal-exclui-produto>
+
+</section>

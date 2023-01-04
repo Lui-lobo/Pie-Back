@@ -1,0 +1,22 @@
+<section class="container fundo-area-logada">
+  <h2 class="text-white row pt-4 fs-1">Cadastro de Eventos</h2>
+  <div class="row gap-3">
+
+    <div class="col  quadro-listagem-evento fundo-destaque  my-5 rounded">
+      <app-lista-cadastro-evento (enviaDadosAoFormularioEvento)="recebeDadosBtnAlterarForm($event)" (enviaDadosAoLayoutEvento)="recebeDadosBtnAlterarLayout($event)">
+      </app-lista-cadastro-evento>
+    </div>
+
+    <div class="col">
+      <div class="row form-cadastro-evento fundo-destaque rounded mt-5 p-3">
+        <app-form-cadastro-evento [dadosRecebidosBtnAlterar]="dadosFormulario" (enviaDadosAoLayoutEvento)="recebeDadosBtnAlterarLayout($event)"></app-form-cadastro-evento>
+      </div>
+
+      <div class="row layout-evento fundo-destaque rounded my-5">
+        <app-layout-cadastro-evento [dadosRecebidosBtnAlterar]="dadosLayout" ></app-layout-cadastro-evento>
+      </div>
+
+    </div>
+  </div>
+
+</section>

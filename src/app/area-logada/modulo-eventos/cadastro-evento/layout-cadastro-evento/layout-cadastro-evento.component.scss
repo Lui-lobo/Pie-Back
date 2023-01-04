@@ -1,0 +1,38 @@
+.assentos{
+  min-width: 20px;
+  min-height: 20px;
+  font-size: 0.9rem;
+}
+
+
+
+@media screen and (max-width:533px){
+
+  .assentos{
+    min-width: 15px;
+    min-height: 15px;
+  }
+
+  .idAssento{
+    display: none;
+  }
+
+
+}
+
+
+@media screen and (max-width:450px){
+
+  .assentos{
+    min-width: 12px;
+    min-height: 12px;
+  }
+
+  .idAssento{
+    display: none;
+  }
+
+
+}
+
+

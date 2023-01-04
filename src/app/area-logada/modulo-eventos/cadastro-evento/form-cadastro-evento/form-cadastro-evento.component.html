@@ -1,0 +1,111 @@
+<form [formGroup]="cadastroForm" class="col form-evento ">
+
+
+  <div class="row">
+    <div class="col">
+      <label for="nomeEvento" class="form-label ">Evento</label>
+      <input formControlName="nomeEvento" type="text" class="form-control" id="nomeEvento" name="nomeEvento">
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="col">
+      <label for="descricao" class="form-label ">Descrição do Evento</label>
+      <textarea formControlName="descricao" type="text" class="form-control" id="descricao" name="descricao"></textarea>
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="col">
+      <label for="dataHora" class="form-label">Data/Hora</label>
+      <input  formControlName="dataHora" type="datetime-local" class="form-control" id="dataHora" name="dataHora">
+    </div>
+    <div class="col">
+      <label for="local" class="form-label">Local</label>
+      <input  formControlName="local" type="text" class="form-control" id="local" name="local">
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="col">
+      <label for="qtdVagas" class="form-label">Quantidade de Vagas</label>
+      <input  formControlName="qtdVagas" type="number" class="form-control" id="qtdVagas" name="qtdVagas">
+    </div>
+    <div class="col">
+      <label for="limiteReservaPorUsuario" class="form-label">Limite de Reserva por Usuário</label>
+      <input  formControlName="limiteReservaPorUsuario" type="number" class="form-control" id="qntlimiteReservaPorUsuarioAssento" name="limiteReservaPorUsuario">
+    </div>
+  </div>
+
+
+
+
+  <div class="row mt-2">
+    <div class="col">
+      <p class="m-0">Existe a necessidade de reserva de assentos?</p>
+      <div class="d-flex gap-5">
+      <div class="form-check">
+        <input formControlName="necessidadeDeReserva"  class="form-check-input" type="radio" name="necessidadeDeReserva" id="necessidadeDeReserva1" value="true" (click)="atualizaNecessidadeDeReserva(true)">
+        <label class="form-check-label" for="necessidadeDeReserva1">
+          Sim
+        </label>
+      </div>
+      <div class="form-check">
+        <input formControlName="necessidadeDeReserva" class="form-check-input" type="radio" name="necessidadeDeReserva" id="necessidadeDeReserva2" value="false" checked (click)="atualizaNecessidadeDeReserva(false)">
+        <label class="form-check-label" for="necessidadeDeReserva2">
+          Não
+        </label>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="row mt-2" *ngIf="temNecessidadeDeReserva">
+      <div class="col">
+        <label for="qtdFileiras" class="form-label">Quantidade de Fileiras</label>
+        <input  formControlName="qtdFileiras" type="number" class="form-control" id="qtdFileiras" name="qtdFileiras">
+      </div>
+      <div class="col">
+        <label for="qtdAssentosPorFileira" class="form-label">Assentos por Fileiras</label>
+        <input  formControlName="qtdAssentosPorFileira" type="number" class="form-control" id="qtdAssentosPorFileira" name="qtdAssentosPorFileira">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="col">
+      <p class="m-0">Tornar o evento disponível para reservas imediatamente?</p>
+      <div class="d-flex gap-5">
+      <div class="form-check">
+        <input formControlName="status"  class="form-check-input" type="radio" name="status" id="status1" value="ativo" >
+        <label class="form-check-label" for="status1">
+          Sim
+        </label>
+      </div>
+      <div class="form-check">
+        <input formControlName="status" class="form-check-input" type="radio" name="status" id="status2" value="inativo" checked >
+        <label class="form-check-label" for="status2">
+          Não
+        </label>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row mt-2">
+
+    <div class="row m-1 gap-3  mt-3">
+      <button [disabled]="cadastroForm.invalid" (click)="onSubmit()" type="submit" class="btn btn-dark col">Gravar</button>
+      <button [disabled]="cadastroForm.invalid" *ngIf="temNecessidadeDeReserva" (click)="previa()" type="button" class="btn btn-primary col">Prévia</button>
+      <!-- <button type="submit" data-crud='cadastro' class="btn btn-success botao__gravar col disabled">Gravar</button> -->
+    </div>
+
+  </div>
+
+
+</form>

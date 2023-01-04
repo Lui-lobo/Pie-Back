@@ -1,0 +1,23 @@
+.fundo-destaque{
+  background-color: #3ad6ba;
+}
+
+
+
+
+@media screen and (max-width:991px){
+  .quadro-listagem-evento{
+    order: 3;
+  }
+
+  .form-cadastro-evento{
+    order: 1;
+  }
+
+  .layout-evento{
+    order: 2;
+
+
+}
+
+}

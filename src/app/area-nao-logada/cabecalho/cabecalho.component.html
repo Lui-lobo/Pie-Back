@@ -1,0 +1,60 @@
+<header class="cabec">
+  <nav class="navbar navbar-expand-lg fixed-top container-fluid cabec__nav">
+    <div class="container-fluid cabec__nav--container">
+
+      <a class="navbar-brand cabec__nav--logo" href="#">PIE</a>
+
+      <button class="navbar-toggler cabec__nav--menu-hamburguer" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between mx-5 nav__container--listalinks " id="navbarNav">
+
+        <ul class="navbar-nav nav-fill nav__listalinks--pagina">
+          <li class="nav-item me-xxl-5 me-lg-3">
+            <a class="nav-link " href="#nossos-servicos">Nossos Serviços</a>
+          </li>
+          <li class="nav-item  me-xxl-5 me-lg-3">
+            <a class="nav-link " href="#perguntasFrequentes">FAQ</a>
+          </li>
+          <li class="nav-item  me-xxl-5 me-lg-3">
+            <a class="nav-link  " href="#contato">Contato</a>
+          </li>
+        </ul>
+
+
+        <ul class="navbar-nav nav-fill gap-3 ">
+          <li class="nav-item dropdown  me-xxl-5 me-lg-3">
+            <a class="nav-link cabec__btn--entrar" data-bs-auto-close="outside" href="#" id="navbarDropdownMenuLink"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="ativaLoginForm()">
+              Entrar
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+              <app-login-cabecalho-home [dadosRecebidos]="trocaFormularioInfos"></app-login-cabecalho-home>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item cabec__link--cadastro"  (click)="ativaCadastroForm()">Novo por aqui? Cadastre-se.</a>
+              <a class="dropdown-item cabec__link--esqueceu"  (click)="ativaEsqueceuSenhaForm()">Esqueceu a senha?</a>
+            </div>
+
+
+
+          </li>
+          <div class="d-flex flex-row justify-content-center">
+            <li class="nav-item ">
+              <a class="nav-link " aria-current="page" href="#"><i class="bi bi-linkedin"></i></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="#nossos-servicos"><i class="bi bi-facebook"></i></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link  " href="#contato"><i class="bi bi-instagram"></i></a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

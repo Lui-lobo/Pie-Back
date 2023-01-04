@@ -1,0 +1,89 @@
+<form class="col my-2 " [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col">
+      <label for="nomeProduto" class="form-label ">Nome do Produto</label>
+      <input formControlName="nomeProduto" type="text" class="form-control" id="nomeProduto" name="nomeProduto">
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col">
+      <label for="descricao" class="form-label ">Descrição do Produto</label>
+      <textarea formControlName="descricao" type="text" class="form-control" id="descricao" name="descricao"></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <label for="qtdEstoque" class="form-label ">Quantidade em Estoque</label>
+      <input formControlName="qtdEstoque" type="number" class="form-control" id="qtdEstoque" name="qtdEstoque">
+    </div>
+
+    <div class="col-6">
+      <label for="precoUnitario" class="form-label ">Preço Unitário</label>
+      <input formControlName="precoUnitario" type="text" class="form-control" id="precoUnitario" name="precoUnitario">
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="col-6">
+      <label for="categoria" class="form-label ">Categoria</label>
+
+      <select class="form-select form-select-sm" formControlName="categoria" id="categoriaLojinha"
+        name="categoriaLojinha" aria-label=".form-select-sm example" *ngIf="submodulo == 'lojinha'">
+        <option selected>Selecione um item da lista</option>
+        <option value="vestuario">Vestuário</option>
+        <option value="livros">Livros</option>
+        <option value="materialEscolar">Material Escolar</option>
+      </select>
+
+      <select class="form-select form-select-sm" formControlName="categoria" id="categoriaRefeicoes"
+        name="categoriaRefeicoes" aria-label=".form-select-sm example" *ngIf="submodulo == 'refeicoes'">
+        <option selected>Selecione um item da lista</option>
+        <option value="lanches">Lanches</option>
+        <option value="pizza">Pizza</option>
+        <option value="vegetariana">Vegetariana</option>
+        <option value="japonesa">Japonesa</option>
+        <option value="brasileira">Brasileira</option>
+        <option value="doces">Doces</option>
+        <option value="chinesa">Chinesa</option>
+        <option value="doces">Doces</option>
+        <option value="gourmet">Gourmet</option>
+        <option value="acai">Açaí</option>
+        <option value="arabe">Árabe</option>
+        <option value="bebidas">Bebidas</option>
+      </select>
+
+    </div>
+
+    <div class="col-6">
+      <label for="status" class="form-label ">Status</label>
+      <select class="form-select form-select-sm" formControlName="status" id="status"
+        name="status" aria-label=".form-select-sm example">
+        <option selected>Selecione um item da lista</option>
+        <option value="ativo">Ativo</option>
+        <option value="inativo">Inativo</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="col">
+      <label for="imgProduto" class="form-label">Imagem do Produto</label>
+      <input class="form-control form-control-sm" id="imgProduto" name="imgProduto" type="file">
+    </div>
+  </div>
+
+  <div class="row mt-2">
+
+    <div class="row m-1 gap-3  mt-3">
+      <button [disabled]="cadastroForm.invalid" type="submit" class="btn btn-dark col">Gravar</button>
+      <!-- <button [disabled]="cadastroForm.invalid" *ngIf="temNecessidadeDeReserva" (click)="previa()" type="button" class="btn btn-primary col">Prévia</button> -->
+      <!-- <button type="submit" data-crud='cadastro' class="btn btn-success botao__gravar col disabled">Gravar</button> -->
+    </div>
+
+  </div>
+
+</form>

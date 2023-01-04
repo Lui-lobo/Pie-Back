@@ -1,0 +1,30 @@
+.secao__titulo{
+  color: #3ad6ba;
+  font-family:'Zilla Slab', serif;
+}
+
+.perguntasFrequentes__container{
+  font-family: var(--fonte-principal);
+}
+.perguntasFrequentes__texto{
+  font-size: 1.2rem;
+
+}
+.perguntasFrequentes__titulo{
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+
+}
+
+.perguntasFrequentes__titulo:focus{
+  font-weight: 700;
+  font-size: 1.5rem;
+  box-shadow: 2px 2px  transparent;
+}
+
+.perguntasFrequentes__titulo:focus{
+  background-color: #ffc107;
+}
+
+

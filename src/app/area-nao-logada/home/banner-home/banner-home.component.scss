@@ -1,0 +1,27 @@
+.secao__banner{
+  margin-top: 68px;
+}
+.banner__imagem{
+  object-fit: scale-down
+}
+.banner__imagem--titulo{
+  visibility: hidden;
+}
+
+.banner__imagem--texto{
+  visibility: hidden;
+}
+.banner__imagem--mobile{
+  display: none;
+}
+@media screen and (max-width:767px){
+  .secao__banner{
+      margin-top: 60px;
+  }
+  .banner__imagem--mobile{
+      display: block;
+  }
+  .banner__imagem{
+      display: none;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="bg-light p-3 mb-3 rounded mt-3" *ngIf="dadosRecebidosBtnAlterar.qtdFileiras>0">
+  <div  class="w-100 bg-dark text-white text-center">Palco</div>
+  <div>
+    <div *ngFor="let fileira of fileiras" class="d-flex w-100 gap-1 my-1 justify-content-center ">
+      <div *ngFor="let assento of assentos" class="assentos bg-dark text-white text-center d-flex w-100  justify-content-center"><span class="align-middle idAssento">{{fileira}}{{assento}}</span></div>
+    </div>
+
+  </div>
+
+</div>

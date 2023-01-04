@@ -1,0 +1,58 @@
+<div class="mt-2 d-flex justify-content-between">
+  <h4 >Alguns dos produtos já cadastrados...</h4>
+  <button class="btn btn-dark btn-sm">Todos Produtos</button>
+</div>
+
+
+<div class="text-center mt-5 fw-bolder"  *ngIf="!listaDeProdutos[0]">
+  <p><i class="bi bi-exclamation-circle-fill"></i>Sem eventos cadastrados.</p>
+</div>
+
+<div class="mt-2"  *ngIf="listaDeProdutos[0]">
+  <div class="bg-light p-3 mb-3 rounded" *ngFor="let produto of listaDeProdutos | paginate: { itemsPerPage: 2, currentPage: pageAtual, totalItems: 6}" >
+    <div class="d-flex justify-content-between align-items-center mx-2">
+      <h5 class="m-0">{{produto.nomeProduto}}</h5>
+      <div class="d-flex gap-3">
+      <button class="btn btn-sm btn-warning" (click)="carregaFormularioBtnAlterar(produto.idProduto)" >Alterar</button>
+      <button type="button" class="btn  btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluiProduto" (click)="carregaModalExcluirProduto(produto.idProduto)">Excluir</button>
+    </div>
+    </div>
+    <hr class="m-2">
+    <div class=" p-0 m-0 row">
+    <div class="col-4"><img class="imgProduto"></div>
+    <div class="col-8">
+    <table class="table table-sm">
+      <tbody>
+        <tr>
+          <td colspan="2"><strong>Descrição:</strong> {{produto.descricao}} </td>
+        </tr>
+
+        <tr>
+          <td><strong>Preço: </strong>{{produto.precoUnitario}}</td>
+          <td><strong>Qtde. em Estoque: </strong>{{produto.qtdEstoque}}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Categoria: </strong>{{produto.categoria}}</td>
+          <td><strong>Status: </strong>{{produto.status}}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Produto criado em:</strong> {{produto.dataHoraCriacaoProduto}}</td>
+          <td><strong>Produto criado por :</strong>  {{produto.nomeUsuarioCriadorProduto}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+    <div class="d-flex gap-3 justify-content-end">
+
+
+    </div>
+  </div>
+
+</div>
+<div class="d-flex justify-content-center">
+<pagination-controls class="minha-paginacao" (pageChange)="pageAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+</div>
+</div>
