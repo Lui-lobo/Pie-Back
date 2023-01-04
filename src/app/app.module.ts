@@ -7,6 +7,7 @@ import { AreaLogadaModule } from './area-logada/area-logada.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     AreaLogadaModule,
-    AreaNaoLogadaModule
+    AreaNaoLogadaModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

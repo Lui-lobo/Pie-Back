@@ -11,6 +11,7 @@ import { CadastroLojinhaComponent } from './area-logada/modulo-compras/submodulo
 import { CadastroRefeicoesComponent } from './area-logada/modulo-compras/submodulo-refeicoes/cadastro-refeicoes/cadastro-refeicoes.component';
 import { CatalogoLojinhaComponent } from './area-logada/modulo-compras/submodulo-lojinha/catalogo-lojinha/catalogo-lojinha.component';
 import { CatalogoRefeicoesComponent } from './area-logada/modulo-compras/submodulo-refeicoes/catalogo-refeicoes/catalogo-refeicoes.component';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,14 @@ const routes: Routes = [
       breadcrumb:[{label: 'home'}]
     }
   },
+  {
+    path: 'auth',
+    component: AuthComponent,
+    data:{
+      title: "PIE | Login",
+      breadcrumb:[{label: 'login'}]  
+    }
+  }, 
   {
     path: 'arealogada',
     component: AreaLogadaComponent,

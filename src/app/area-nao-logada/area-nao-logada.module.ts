@@ -24,7 +24,8 @@ import { TrocaFormularioLogin } from './cabecalho/login-cabecalho-home/troca-for
     RodapeComponent,
     ],
   exports:[
-    AreaNaoLogadaComponent
+    AreaNaoLogadaComponent,
+    CabecalhoComponent
   ],
   providers:[
     TrocaFormularioLogin
