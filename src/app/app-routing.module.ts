@@ -12,6 +12,9 @@ import { CadastroRefeicoesComponent } from './area-logada/modulo-compras/submodu
 import { CatalogoLojinhaComponent } from './area-logada/modulo-compras/submodulo-lojinha/catalogo-lojinha/catalogo-lojinha.component';
 import { CatalogoRefeicoesComponent } from './area-logada/modulo-compras/submodulo-refeicoes/catalogo-refeicoes/catalogo-refeicoes.component';
 import { AuthComponent } from './auth/auth.component';
+import { RegisterAuthComponent } from './auth/register-auth/register-auth.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { RecoverPassComponent } from './auth/recover-pass/recover-pass.component';
 
 const routes: Routes = [
   {
@@ -27,8 +30,15 @@ const routes: Routes = [
     component: AuthComponent,
     data:{
       title: "PIE | Login",
+      btnEntrar: "Registrar",
+      btnEntrarHref: "register",
       breadcrumb:[{label: 'login'}]  
-    }
+    },
+    children:[
+      {path: 'login', component: SigninComponent},
+      {path: 'register', component: RegisterAuthComponent},
+      {path: 'recoverPass', component: RecoverPassComponent}
+    ]
   }, 
   {
     path: 'arealogada',

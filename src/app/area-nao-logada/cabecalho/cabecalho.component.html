@@ -27,17 +27,10 @@
         <ul class="navbar-nav nav-fill gap-3 ">
           <li class="nav-item dropdown  me-xxl-5 me-lg-3">
             <a class="nav-link cabec__btn--entrar" data-bs-auto-close="outside" href="#" id="navbarDropdownMenuLink"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="ativaLoginForm()">
+              role="button" aria-expanded="false" href="auth/login">
               Entrar
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-              <app-login-cabecalho-home [dadosRecebidos]="trocaFormularioInfos"></app-login-cabecalho-home>
-
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item cabec__link--cadastro"  (click)="ativaCadastroForm()">Novo por aqui? Cadastre-se.</a>
-              <a class="dropdown-item cabec__link--esqueceu"  (click)="ativaEsqueceuSenhaForm()">Esqueceu a senha?</a>
-            </div>
+           
 
 
 

@@ -1,0 +1,88 @@
+<div class="login-container vh-80 d-flex container-fluid p-0">
+
+    <div class="form-img d-flex vw-30 justify-content-center align-items-center p-4 rounded-start">
+        <img  src="imgs/imgsForms/newUser.svg" alt="entre e explore um avanço em sua educação" class="w-100"/>
+    </div>
+
+    <div class="form d-flex w-75 justify-content-center align-items-center flex-column bg-white p-4 rounded-end">
+        <form action="/cadastrar" method="POST" id="form-register" class="">
+            <div class="form-header mb-4 p-1">
+                <div class="title">
+                    <h1 class="">Crie sua conta</h1>
+                </div>
+            </div>
+
+            <div class="input-group d-flex  ">
+    
+                <div class="w-50 mb-1 p-3 input-register">
+                    <label for="email" class="form-label">Digite seu Email</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Digite seu Email"
+                    required
+                    />
+                </div>
+
+                <div class="w-50 p-3 input-register">
+                    <label for="confEmail" class="form-label">Confirme seu email</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="confEmail"
+                    name="confEmail"
+                    placeholder="Confirme seu Email"
+                    required
+                    />
+                </div>
+
+                <div class="w-50 mb-1 p-3 input-register">
+                    <label for="password" class="form-label">Digite uma Senha</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Digite uma Senha"
+                    required
+                    />
+                </div>
+
+                <div class="w-50 p-3 input-register">
+                    <label for="confPassword" class="form-label">Confirme a Senha</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="confPassword"
+                    name="confPassword"
+                    placeholder="Confirme a Senha"
+                    required
+                    />
+                </div>
+
+                <div class="w-100 p-3">
+                    <label for="tipoUser" class="form-label">Selecione o seu Tipo de Usuario</label>
+                    <select class="form-select p-2" aria-label="Selecione Qual seu tipo de usuario" name="tipoUser" id="tipoUser">
+                        <option selected>Usuario Pie</option>
+                        <option value="1">Instituicao</option>
+                    </select>
+                </div>
+
+                <button type="submit" action="#" class="entrar btn btn-primary col-12 mt-4 rounded">Criar Conta</button>
+
+                <div class="cadastrar-btn d-flex flex-row justify-content-between align-items-center mt-4 w-100">
+                    
+                    <div>
+                        <label class="me-5">Já possui uma conta ? <a href="/auth/login" class="link">Entre aqui</a>
+                        </label>
+                    </div>
+                    
+                    <a href="/auth/login"><button type="button" class=" btn btn-info">Login</button></a>
+                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
