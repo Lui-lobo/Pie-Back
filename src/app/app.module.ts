@@ -1,6 +1,8 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AreaNaoLogadaModule } from './area-nao-logada/area-nao-logada.module';
 import { AreaLogadaModule } from './area-logada/area-logada.module';
@@ -19,7 +21,10 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     AreaLogadaModule,
     AreaNaoLogadaModule,
-    AuthModule
+    AuthModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,73 +1,100 @@
 <div class="login-container vh-80 d-flex container-fluid p-0">
 
     <div class="form-img d-flex vw-30 justify-content-center align-items-center p-4 rounded-start">
-        <img  src="imgs/imgsForms/newUser.svg" alt="entre e explore um avanço em sua educação" class="w-100"/>
+        <img  src="assets/img/ImgsForms/newUser.svg" alt="entre e explore um avanço em sua educação" class="w-100"/>
     </div>
 
     <div class="form d-flex w-75 justify-content-center align-items-center flex-column bg-white p-4 rounded-end">
-        <form action="/cadastrar" method="POST" id="form-register" class="">
+        <form (ngSubmit)="submit(this.registerForm.value)" (onSubmit)="createHandler($any($event))" [formGroup]="registerForm" #formDir="ngForm" class="">
             <div class="form-header mb-4 p-1">
                 <div class="title">
                     <h1 class="">Crie sua conta</h1>
                 </div>
             </div>
 
+          
+
             <div class="input-group d-flex  ">
     
-                <div class="w-50 mb-1 p-3 input-register">
+                <div class="w-100 mb-1 p-3 input-register">
                     <label for="email" class="form-label">Digite seu Email</label>
                     <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email"
+                    id="Login"
+                    name="Login"
+                    formControlName="Login"
                     placeholder="Digite seu Email"
                     required
                     />
                 </div>
 
-                <div class="w-50 p-3 input-register">
+                <div class="alert alert-danger small email-alert w-100" *ngIf="Login.invalid && formDir.submitted" role="alert">
+                    O email é obrigatorio
+                </div>
+
+                <div class="w-100 p-3 input-register">
                     <label for="confEmail" class="form-label">Confirme seu email</label>
                     <input
                     type="text"
                     class="form-control"
-                    id="confEmail"
-                    name="confEmail"
+                    id="confLogin"
+                    name="confLogin"
+                    formControlName="confLogin"
                     placeholder="Confirme seu Email"
                     required
                     />
                 </div>
 
-                <div class="w-50 mb-1 p-3 input-register">
+                <div class="alert alert-danger small email-alert w-100" *ngIf="confLogin.invalid && formDir.submitted" role="alert">
+                    Confirme seu Email
+                </div>
+
+                <div class="w-100 mb-1 p-3 input-register">
                     <label for="password" class="form-label">Digite uma Senha</label>
                     <input
                     type="text"
                     class="form-control"
-                    id="password"
-                    name="password"
+                    id="PassWord"
+                    name="PassWord"
+                    formControlName="PassWord"
                     placeholder="Digite uma Senha"
                     required
                     />
                 </div>
 
-                <div class="w-50 p-3 input-register">
+                <div class="alert alert-danger small email-alert w-100" *ngIf="PassWord.invalid && formDir.submitted" role="alert">
+                    A senha é obrigatoria 
+                </div>
+
+                <div class="w-100 p-3 input-register">
                     <label for="confPassword" class="form-label">Confirme a Senha</label>
                     <input
                     type="text"
                     class="form-control"
-                    id="confPassword"
-                    name="confPassword"
+                    id="confPassWord"
+                    name="confPassWord"
+                    formControlName="confPassWord"
                     placeholder="Confirme a Senha"
                     required
                     />
                 </div>
 
+                <div class="alert alert-danger small email-alert w-100 " *ngIf="confPassWord.invalid && formDir.submitted" role="alert">
+                    Confirme Sua Senha 
+                </div>
+
                 <div class="w-100 p-3">
-                    <label for="tipoUser" class="form-label">Selecione o seu Tipo de Usuario</label>
-                    <select class="form-select p-2" aria-label="Selecione Qual seu tipo de usuario" name="tipoUser" id="tipoUser">
-                        <option selected>Usuario Pie</option>
-                        <option value="1">Instituicao</option>
+                    <label for="idTipoUser" class="form-label">Selecione o seu Tipo de Usuario</label>
+
+                    <select class="form-select p-2" placeholder="Selecione o seu tipo de Usuario" formControlName="idTipoUser" id="idTipoUser" [(ngModel)]="typeUserId">
+                        <option *ngFor="let n of tipoUsers" value="{{ n.id }}">{{ n.name }}</option>
                     </select>
+                   
+                </div>
+                
+                <div class="alert alert-danger small email-alert w-100 " *ngIf="idTipoUser.invalid && formDir.submitted" role="alert">
+                    Selecione Seu Tipo de Usuario
                 </div>
 
                 <button type="submit" action="#" class="entrar btn btn-primary col-12 mt-4 rounded">Criar Conta</button>
