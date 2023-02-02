@@ -20,8 +20,6 @@ export class RegisterAuthComponent implements OnInit {
     {id: '2',name: 'Instituição'}
   ]
 
-  
-
   public typeUserId:number;
 
   constructor(private userRegisterService: UserRegisterService) { }

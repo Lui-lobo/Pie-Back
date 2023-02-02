@@ -9,6 +9,7 @@ import { RegisterAuthComponent } from './register-auth/register-auth.component';
 import { CabecalhoComponent } from '../area-nao-logada/cabecalho/cabecalho.component';
 import { RecoverPassComponent } from './recover-pass/recover-pass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CabecalhoAuthComponent,
     RegisterAuthComponent,
     RecoverPassComponent,
-   
   ],
   imports: [
     CommonModule,
