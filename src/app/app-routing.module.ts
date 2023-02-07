@@ -15,6 +15,7 @@ import { AuthComponent } from './auth/auth.component';
 import { RegisterAuthComponent } from './auth/register-auth/register-auth.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { RecoverPassComponent } from './auth/recover-pass/recover-pass.component';
+import { MultiStepFormComponent } from './area-logada/multi-step-form/multi-step-form.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
       breadcrumb:[{label: 'areaLogada'}]
     },
     children:[
+      {path: 'primeiroAcesso',component: MultiStepFormComponent},
       {path: 'homeinterno',component: HomeInternoComponent},
       {path: 'cadastroevento',component: CadastroEventoComponent},
       {path: 'inscricaoevento',component: ReservaEventoComponent},

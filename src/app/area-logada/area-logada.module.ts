@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { AreaLogadaComponent } from './area-logada.component';
 import { ModuloCadastroComponent } from './modulo-cadastro/modulo-cadastro.component';
 import { ModuloComprasModule } from './modulo-compras/modulo-compras.module';
+import { MultiStepFormComponent } from './multi-step-form/multi-step-form.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { ModuloComprasModule } from './modulo-compras/modulo-compras.module';
     RodapeInternoComponent,
     MenuLateralComponent,
     ModuloCadastroComponent,
+    MultiStepFormComponent,
 
   ],
   exports:[
