@@ -5,9 +5,9 @@
     </div>
 
     <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-5 rounded-end">
-        <form id="multiStepForm">
+        <form id="multiStepForm" *ngIf="submit()" [formGroup]="multiStep" #formDir="ngForm">
 
-            <div class="step-1-wrapper ">
+            <div class="step-1-wrapper" *ngIf="steps==0" formGroupName="detalhesInstituicao">
                 <div class="form-header mb-4">
                     <div class="title">
                         <h1 class="">Configuração de Primeiro Acesso</h1>
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="input-group p-3">
-                    <div class="col-5 m-3">
+                    <div class="col-12 m-3">
                         <label for="email" class="form-label">Digite o nome da instituição</label>
                         <input
                         type="text"
@@ -28,52 +28,26 @@
                         />
                     </div>
 
-                    <div class="col-5 m-3">
-                        <label for="password" class="form-label">Digite o CNPJ da instituição</label>
+                    <div class="col-12 m-3">
+                        <label for="password" class="form-label">Digite o Nome do Dono/Gestor</label>
                         <input
                         type="text"
                         class="form-control"
-                        id="CNPJ"
-                        name="CNPJ"
-                        formControlName="CNPJ"
+                        id="ceo"
+                        name="ceo"
+                        formControlName="ceo"
                         placeholder="Digite o CNPJ da instituição"
                         required
                         />
                     </div>
-
-                    <div class="col-5 m-3">
-                        <label for="razaoSocial" class="form-label">Digite a Razão Social</label>
-                        <input
-                        type="text"
-                        class="form-control"
-                        id="razaoSocial"
-                        name="razaoSocial"
-                        formControlName="razaoSocial"
-                        placeholder="Digite sua Razão Social"
-                        required
-                        />
-                    </div>
-
-                    <div class="col-5 m-3">
-                        <label for="password" class="form-label">Digite sua Inscrição Municipal</label>
-                        <input
-                        type="text"
-                        class="form-control"
-                        id="inscricaoMunicipal"
-                        name="inscricaoMunicipal"
-                        formControlName="inscricaoMunicipal"
-                        placeholder="Digite sua Inscrição Municipal"
-                        required
-                        />
-                    </div>
                     
-                    <div class="d-flex flex-row-reverse w-100">
-                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25">Proximo</button>
+                    <div class="d-flex flex-row-reverse w-100" >
+                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="next()">Proximo</button>
                     </div>
                 </div>
             </div> 
 
-            <div class="step-1-wrapper">
+            <div class="step-1-wrapper" *ngIf="steps==1" formGroupName="documentosInstituicao">
 
                 <div class="form-header mb-4">
                     <div class="title">
@@ -83,27 +57,14 @@
 
                 <div class="input-group p-3">
                     <div class="col-5 m-3">
-                        <label for="email" class="form-label">Digite o nome da instituição</label>
+                        <label for="cnpj" class="form-label">Digite o CNPJ</label>
                         <input
                         type="text"
                         class="form-control"
-                        id="nameInstituicao"
-                        name="nameInstituicao"
-                        formControlName="nameInstituicao"
-                        placeholder="Digite o nome da instituição"
-                        required
-                        />
-                    </div>
-
-                    <div class="col-5 m-3">
-                        <label for="password" class="form-label">Digite o CNPJ da instituição</label>
-                        <input
-                        type="text"
-                        class="form-control"
-                        id="CNPJ"
-                        name="CNPJ"
-                        formControlName="CNPJ"
-                        placeholder="Digite o CNPJ da instituição"
+                        id="cnpj"
+                        name="cnpj"
+                        formControlName="cnpj"
+                        placeholder="Digite o CNPJ"
                         required
                         />
                     </div>
@@ -116,13 +77,13 @@
                         id="razaoSocial"
                         name="razaoSocial"
                         formControlName="razaoSocial"
-                        placeholder="Digite sua Razão Social"
+                        placeholder="Digite a Razão Social"
                         required
                         />
                     </div>
 
                     <div class="col-5 m-3">
-                        <label for="password" class="form-label">Digite sua Inscrição Municipal</label>
+                        <label for="inscricaoMunicipal" class="form-label">Digite sua Inscrição Municipal</label>
                         <input
                         type="text"
                         class="form-control"
@@ -134,17 +95,91 @@
                         />
                     </div>
 
+                    <div class="col-5 m-3">
+                        <label for="autorizacaoMec" class="form-label">Digite sua Autorização do MEC</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="autorizacaoMec"
+                        name="autorizacaoMec"
+                        formControlName="autorizacaoMec"
+                        placeholder="Digite sua Autorização do MEC"
+                        required
+                        />
+                    </div>
+
                     <div class="d-flex flex-row w-50">
-                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25">Retornar</button>
+                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="previous()">Retornar</button>
                     </div>
 
                     <div class="d-flex flex-row-reverse w-50">
-                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25">Proximo</button>
+                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="next()">Proximo</button>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="step-1-wrapper" *ngIf="steps==2" formGroupName="contatosInstituicao">
+
+                <div class="form-header mb-4">
+                    <div class="title">
+                        <h1 class="">Quase Terminando</h1>
+                    </div>
+                </div>
+
+                <div class="input-group p-3">
+                    <div class="col-12 m-3">
+                        <label for="email" class="form-label">Digite o Email da instituição</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="emailInstituicao"
+                        name="emailInstituicao"
+                        formControlName="emailInstituicao"
+                        placeholder="Digite o Email da instituição"
+                        required
+                        />
+                    </div>
+
+                    <div class="col-5 m-3">
+                        <label for="password" class="form-label">Digite o Telefone Comercial</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="telefoneComercial1"
+                        name="telefoneComercial1"
+                        formControlName="telefoneComercial1"
+                        placeholder="Digite o Telefone Comercial"
+                        required
+                        />
+                    </div>
+
+                    <div class="col-5 m-3">
+                        <label for="razaoSocial" class="form-label">Telefone Comercial - 2 <small>*Não Obrigatorio</small></label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="telefoneComercial2"
+                        name="telefoneComercial2"
+                        formControlName="telefoneComercial2"
+                        placeholder="Digite caso queira um segundo telefone"
+                        required
+                        />
+                    </div>
+
+                    <div class="d-flex flex-row w-50">
+                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="previous()">Retornar</button>
+                    </div>
+
+                    <div class="d-flex flex-row-reverse w-50">
+                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="next()">Proximo</button>
                     </div>
                 </div>
             </div> 
 
 
         </form>
+
+        <br>
+        <pre>{{multiStep.value | json }} </pre>
     </div>
 </div>

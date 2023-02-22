@@ -12,12 +12,15 @@ import { ModuloCadastroComponent } from './modulo-cadastro/modulo-cadastro.compo
 import { ModuloComprasModule } from './modulo-compras/modulo-compras.module';
 import { MultiStepFormComponent } from './multi-step-form/multi-step-form.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     ModuloEventosModule,
     ModuloComprasModule,
+    ReactiveFormsModule,
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right'})
   ],
   declarations: [

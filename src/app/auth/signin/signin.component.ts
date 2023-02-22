@@ -58,7 +58,7 @@ export class SigninComponent implements OnInit {
 
       this.onSubmit.emit(this.signinForm.value);
 
-      this.router.navigate(['/'])
+      this.router.navigate(['/arealogada/primeiroAcesso'])
 
     }
   }
