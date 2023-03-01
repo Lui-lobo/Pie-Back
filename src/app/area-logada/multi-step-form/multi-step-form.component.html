@@ -5,7 +5,7 @@
     </div>
 
     <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-5 rounded-end">
-        <form id="multiStepForm" (ngSubmit)="submit(this.multiStep.value)" [formGroup]="multiStep" #formDir="ngForm">
+        <form id="multiStepForm" (ngSubmit)="submit(this.multiStep.value)" [formGroup]="multiStep" #formDir="ngForm" >
 
             <div class="step-1-wrapper" *ngIf="steps==0" formGroupName="detalhesInstituicao">
                 <div class="form-header mb-4">
