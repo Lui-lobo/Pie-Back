@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { instituicao } from './instituicao.interface';
 
@@ -10,7 +10,7 @@ import { PrimeiroAcessoService } from 'src/app/services/areaLogada/PrimeiroAcess
   templateUrl: './multi-step-form.component.html',
   styleUrls: ['./multi-step-form.component.scss']
 })
-export class MultiStepFormComponent {
+export class MultiStepFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<instituicao>();
 
   multiStep!: FormGroup;
@@ -18,7 +18,9 @@ export class MultiStepFormComponent {
   title = "Formulario de Varias etapas de cadastro de instituição";
   steps: any = 0;
 
-  ngOninit(): void {
+  constructor(private PrimeiroAcessoService: PrimeiroAcessoService) { }
+
+  ngOnInit(): void {
     this.multiStep = new FormGroup({
       detalhesInstituicao: new FormGroup ({
         nameInstituicao: new FormControl(''),
@@ -84,24 +86,36 @@ export class MultiStepFormComponent {
 
       const detalhesInstituicao = new FormData();
 
-      detalhesInstituicao.append('nameInstituicao', instituicao.nameInstituicao)
-      detalhesInstituicao.append('ceo', instituicao.ceo)
+      detalhesInstituicao.append('nameInstituicao', instituicao.nameInstituicao);
+      detalhesInstituicao.append('ceo', instituicao.ceo);
 
       const documentosInstituicao = new FormData();
 
-      documentosInstituicao.append('cnpj', instituicao.cnpj)
-      documentosInstituicao.append('razaoSocial', instituicao.razaoSocial)
-      documentosInstituicao.append('inscricaoMunicipal', instituicao.inscricaoMunicipal)
-      documentosInstituicao.append('autorizacaoMec', instituicao.autorizacaoMec)
+      documentosInstituicao.append('cnpj', instituicao.cnpj);
+      documentosInstituicao.append('razaoSocial', instituicao.razaoSocial);
+      documentosInstituicao.append('inscricaoMunicipal', instituicao.inscricaoMunicipal);
+      documentosInstituicao.append('autorizacaoMec', instituicao.autorizacaoMec);
 
       const contatosInstituicao = new FormData();
 
-      contatosInstituicao.append('emailInstituicao', instituicao.emailInstituicao)
-      contatosInstituicao.append('telefoneComercial1', instituicao.telefoneComercial1)
-      contatosInstituicao.append('telefoneComercial2', instituicao.telefoneComercial2)
+      contatosInstituicao.append('emailInstituicao', instituicao.emailInstituicao);
+      contatosInstituicao.append('telefoneComercial1', instituicao.telefoneComercial1);
+      contatosInstituicao.append('telefoneComercial2', instituicao.telefoneComercial2);
 
-     
+     await this.PrimeiroAcessoService.createContato(contatosInstituicao).subscribe((res) => {
+      console.log(res);
+     })
 
+     await this.PrimeiroAcessoService.createDocument(documentosInstituicao).subscribe((res) => {
+      console.log(res);
+     })
+
+     await this.PrimeiroAcessoService.createInstituicao(detalhesInstituicao).subscribe((res) => {
+      console.log(res);
+     })
+
+    
+     this.onSubmit.emit(this.multiStep.value);
   }
 
   next() {

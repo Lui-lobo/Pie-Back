@@ -54,7 +54,11 @@ export class SigninComponent implements OnInit {
 
       await this.userLoginService.authenticateUser(formData).subscribe((res) => {
         console.log(res);
+        let response = JSON.stringify(res)
+        localStorage.setItem('token', response)
       });
+
+      localStorage.setItem('token', '')
 
       this.onSubmit.emit(this.signinForm.value);
 

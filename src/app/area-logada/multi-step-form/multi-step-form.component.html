@@ -5,7 +5,7 @@
     </div>
 
     <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-5 rounded-end">
-        <form id="multiStepForm" (ngSubmit)="submit(this.multiStep.value)" [formGroup]="multiStep" #formDir="ngForm" >
+        <form id="multiStepForm" (ngSubmit)="submit(this.multiStep.value)" [formGroup]="multiStep" #formDir="ngForm">
 
             <div class="step-1-wrapper" *ngIf="steps==0" formGroupName="detalhesInstituicao">
                 <div class="form-header mb-4">
@@ -171,7 +171,7 @@
                     </div>
 
                     <div class="d-flex flex-row-reverse w-50">
-                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="next()">Proximo</button>
+                        <button type="submit" action="#" class="entrar btn btn-primary mt-4 w-25" >Proximo</button>
                     </div>
                 </div>
             </div> 
@@ -180,6 +180,6 @@
         </form>
 
         <br>
-        <pre>{{multiStep.value | json }} </pre>
+        <pre>{{this.multiStep.value | json }} </pre>
     </div>
 </div>
