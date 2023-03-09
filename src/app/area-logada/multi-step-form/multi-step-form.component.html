@@ -5,9 +5,9 @@
     </div>
 
     <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-5 rounded-end">
-        <form id="multiStepForm" (ngSubmit)="submit(this.multiStep.value)" [formGroup]="multiStep" #formDir="ngForm">
+        <form id="multiStepForm" (ngSubmit)="submit(this.multiStep.value.detalhesInstituicao)" [formGroup]="multiStep" #formDir="ngForm">
 
-            <div class="step-1-wrapper" *ngIf="steps==0" formGroupName="detalhesInstituicao">
+            <div class="step-1-wrapper" *ngIf="steps==0" >
                 <div class="form-header mb-4">
                     <div class="title">
                         <h1 class="">Configuração de Primeiro Acesso</h1>
@@ -47,7 +47,7 @@
                 </div>
             </div> 
 
-            <div class="step-1-wrapper" *ngIf="steps==1" formGroupName="documentosInstituicao">
+            <div class="step-1-wrapper" *ngIf="steps==1" >
 
                 <div class="form-header mb-4">
                     <div class="title">
@@ -118,7 +118,7 @@
                 </div>
             </div> 
 
-            <div class="step-1-wrapper" *ngIf="steps==2" formGroupName="contatosInstituicao">
+            <div class="step-1-wrapper" *ngIf="steps==2" >
 
                 <div class="form-header mb-4">
                     <div class="title">

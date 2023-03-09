@@ -4,6 +4,6 @@ export interface User {
     idTipoUser: string,
     Login: string,
     remember_me: boolean,
-    PassWord: string,
+    password: string,
     HashPass: string
 }

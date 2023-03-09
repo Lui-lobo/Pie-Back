@@ -1,4 +1,4 @@
-export interface instituicao {
+export interface Instituicao {
     id: number;
     nameInstituicao: string;
     ceo: string;

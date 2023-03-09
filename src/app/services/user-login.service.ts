@@ -14,6 +14,6 @@ export class UserLoginService {
   private apiUrl = `${this.baseApiUrl}api/login`
 
   authenticateUser(formData: FormData): Observable<FormData> {
-    return this.http.post<FormData>(this.apiUrl, formData)
+    return this.http.post<FormData>(this.apiUrl, formData, {headers:{skip:'true'}})
   }
 }
