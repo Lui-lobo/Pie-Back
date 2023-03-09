@@ -78,7 +78,7 @@ export class RegisterAuthComponent implements OnInit {
 
       formData.append('idStatus', user.idStatus);
       formData.append('Login', user.Login);
-      formData.append('PassWord', user.PassWord);
+      formData.append('password', user.PassWord);
       formData.append('HashPass', user.HashPass);
       formData.append('idTipoUser', user.idTipoUser);
   

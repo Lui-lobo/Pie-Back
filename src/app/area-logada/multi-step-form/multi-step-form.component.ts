@@ -86,8 +86,8 @@ export class MultiStepFormComponent implements OnInit {
 
       const detalhesInstituicao = new FormData();
 
-      detalhesInstituicao.append('nameInstituicao', instituicao.nameInstituicao);
-      detalhesInstituicao.append('ceo', instituicao.ceo);
+      detalhesInstituicao.append('nome_instituicao', instituicao.nameInstituicao);
+      detalhesInstituicao.append('nome_Ceo', instituicao.ceo);
 
       const documentosInstituicao = new FormData();
 
