@@ -87,27 +87,72 @@ export class MultiStepFormComponent implements OnInit {
 
       detalhesInstituicao.append('nome_instituicao', this.nameInstituicao.value);
       detalhesInstituicao.append('nome_Ceo', this.ceo.value);
+    
+    /* Sessão Dedicada a criar as variaveis para cada documento ser inserido de forma individual na tabela */
 
-      const documentosInstituicao = new FormData();
+      const documentosInstituicaoCnpj = new FormData();
 
-      documentosInstituicao.append('cnpj', this.cnpj.value);
-      documentosInstituicao.append('razaoSocial', this.razaoSocial.value);
-      documentosInstituicao.append('inscricaoMunicipal', this.inscricaoMunicipal.value);
-      documentosInstituicao.append('autorizacaoMec', this.autorizacaoMec.value);
+      documentosInstituicaoCnpj.append('documento', this.cnpj.value);
+     
+      const documentosInstituicaoRazaoSocial = new FormData();
 
-      const contatosInstituicao = new FormData();
+      documentosInstituicaoRazaoSocial.append('documento', this.razaoSocial.value);
 
-      contatosInstituicao.append('contato', this.emailInstituicao.value);
-      contatosInstituicao.append('contato', this.telefoneComercial1.value);
-      contatosInstituicao.append('contato', this.telefoneComercial2.value);
+      const documentosInstituicaoInscricaoMunicipal = new FormData();
+
+      documentosInstituicaoInscricaoMunicipal.append('documento', this.inscricaoMunicipal.value);
+
+      const documentosInstituicaoAutorizacaoMec = new FormData();
+
+      documentosInstituicaoAutorizacaoMec.append('documento', this.autorizacaoMec.value);
+
+      /* Fim da sessão de documentos individuais */
+
+
+      /**
+       * Inicio da sessão de inserção de contatos Individuais da instituição
+       */
+      const contatosInstituicaoEmail = new FormData();
+
+      contatosInstituicaoEmail.append('contato', this.emailInstituicao.value);
+
+      const contatosInstituicaoTelefone1 = new FormData();
+      contatosInstituicaoTelefone1.append('contato', this.telefoneComercial1.value);
+
+      const contatosInstituicaoTelefone2 = new FormData();
+      contatosInstituicaoTelefone2.append('contato', this.telefoneComercial2.value);
+
+        /**
+       * Fim da sessão de inserção de contatos Individuais da instituição
+       */
 
       console.log(this.nameInstituicao)
 
-     await this.PrimeiroAcessoService.createContato(contatosInstituicao).subscribe((res) => {
+     await this.PrimeiroAcessoService.createContato(contatosInstituicaoEmail).subscribe((res) => {
       console.log(res);
      })
 
-     await this.PrimeiroAcessoService.createDocument(documentosInstituicao).subscribe((res) => {
+     await this.PrimeiroAcessoService.createContato(contatosInstituicaoTelefone1).subscribe((res) => {
+      console.log(res);
+     })
+
+     await this.PrimeiroAcessoService.createContato(contatosInstituicaoTelefone2).subscribe((res) => {
+      console.log(res);
+     })
+
+     await this.PrimeiroAcessoService.createDocument(documentosInstituicaoCnpj).subscribe((res) => {
+      console.log(res);
+     })
+
+     await this.PrimeiroAcessoService.createDocument(documentosInstituicaoRazaoSocial).subscribe((res) => {
+      console.log(res);
+     })
+
+     await this.PrimeiroAcessoService.createDocument(documentosInstituicaoInscricaoMunicipal).subscribe((res) => {
+      console.log(res);
+     })
+
+     await this.PrimeiroAcessoService.createDocument(documentosInstituicaoAutorizacaoMec).subscribe((res) => {
       console.log(res);
      })
 
