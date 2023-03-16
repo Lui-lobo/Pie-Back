@@ -4,7 +4,7 @@
         <img  src="assets/img/ImgsForms/configuracaoPrimeiroAcesso.svg" alt="entre e explore um avanço em sua educação" class="w-100"/>
     </div>
 
-    <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-4 rounded-end">
+    <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-4 rounded-end container-fluid">
         <form id="multiStepForm" (ngSubmit)="submit(this.multiStep.value.detalhesInstituicao)" [formGroup]="multiStep" #formDir="ngForm">
 
             <div class="step-1-wrapper justify-content-center align-items-center w-100" *ngIf="steps==0" >
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="input-group p-3 d-flex align-content-center ">
-                    <div class="col-12 m-3">
+                    <div class="col-12 m-3 input">
                         <label for="email" class="form-label">Digite o nome da instituição</label>
                         <input
                         type="text"
@@ -28,7 +28,7 @@
                         />
                     </div>
 
-                    <div class="col-12 m-3">
+                    <div class="col-12 m-3 input">
                         <label for="password" class="form-label">Digite o Nome do Dono/Gestor</label>
                         <input
                         type="text"
@@ -55,8 +55,8 @@
                     </div>
                 </div>
 
-                <div class="input-group p-3">
-                    <div class="col-5 m-3">
+                <div class="input-group p-4 w-100">
+                    <div class="col-6 input-2 cnpj sm-col-12">
                         <label for="cnpj" class="form-label">Digite o CNPJ</label>
                         <input
                         type="text"
@@ -69,7 +69,7 @@
                         />
                     </div>
 
-                    <div class="col-5 m-3">
+                    <div class="col-6 input-2">
                         <label for="razaoSocial" class="form-label">Digite a Razão Social</label>
                         <input
                         type="text"
@@ -82,7 +82,7 @@
                         />
                     </div>
 
-                    <div class="col-5 m-3">
+                    <div class="col-6 input-2 mr-1 municipal">
                         <label for="inscricaoMunicipal" class="form-label">Digite sua Inscrição Municipal</label>
                         <input
                         type="text"
@@ -95,7 +95,7 @@
                         />
                     </div>
 
-                    <div class="col-5 m-3">
+                    <div class="col-6 input-2">
                         <label for="autorizacaoMec" class="form-label">Digite sua Autorização do MEC</label>
                         <input
                         type="text"
@@ -108,12 +108,14 @@
                         />
                     </div>
 
-                    <div class="d-flex flex-row w-50">
-                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="previous()">Retornar</button>
-                    </div>
+                    <div class="w-100 col-12 d-flex">
+                        <div class="d-flex flex-row w-50">
+                            <button type="#" action="#" class="btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
+                        </div>
 
-                    <div class="d-flex flex-row-reverse w-50">
-                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="next()">Proximo</button>
+                        <div class="d-flex flex-row-reverse w-50">
+                            <button type="#" action="#" class="entrar btn btn-primary mt-4 w-50" (click)="next()">Proximo</button>
+                        </div>
                     </div>
                 </div>
             </div> 
@@ -126,8 +128,8 @@
                     </div>
                 </div>
 
-                <div class="input-group p-3">
-                    <div class="col-12 m-3">
+                <div class="input-group p-4 w-100">
+                    <div class="col-12">
                         <label for="email" class="form-label">Digite o Email da instituição</label>
                         <input
                         type="text"
@@ -140,7 +142,7 @@
                         />
                     </div>
 
-                    <div class="col-5 m-3">
+                    <div class="col-6 input-2 telefone">
                         <label for="password" class="form-label">Digite o Telefone Comercial</label>
                         <input
                         type="text"
@@ -153,7 +155,7 @@
                         />
                     </div>
 
-                    <div class="col-5 m-3">
+                    <div class="col-6 input-2">
                         <label for="razaoSocial" class="form-label">Telefone Comercial - 2 <small>*Não Obrigatorio</small></label>
                         <input
                         type="text"
@@ -166,12 +168,14 @@
                         />
                     </div>
 
-                    <div class="d-flex flex-row w-50">
-                        <button type="#" action="#" class="entrar btn btn-primary mt-4 w-25" (click)="previous()">Retornar</button>
-                    </div>
+                    <div class="w-100 col-12 d-flex">
+                        <div class="d-flex flex-row w-100">
+                            <button type="#" action="#" class="btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
+                        </div>
 
-                    <div class="d-flex flex-row-reverse w-50">
-                        <button type="submit" action="#" class="entrar btn btn-primary mt-4 w-25" >Proximo</button>
+                        <div class="d-flex flex-row-reverse w-100">
+                            <button type="submit" action="#" class="entrar btn btn-primary mt-4 w-50" >Proximo</button>
+                        </div>
                     </div>
                 </div>
             </div> 

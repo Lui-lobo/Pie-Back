@@ -16,6 +16,7 @@ import { RegisterAuthComponent } from './auth/register-auth/register-auth.compon
 import { SigninComponent } from './auth/signin/signin.component';
 import { RecoverPassComponent } from './auth/recover-pass/recover-pass.component';
 import { MultiStepFormComponent } from './area-logada/multi-step-form/multi-step-form.component';
+import { AuthGuardGuard } from './auth/auth-guard.guard';
 
 const routes: Routes = [
   {
@@ -43,6 +44,7 @@ const routes: Routes = [
   }, 
   {
     path: 'arealogada',
+    canActivate: [AuthGuardGuard],
     component: AreaLogadaComponent,
     data:{
       title:"PIE | Bem vindo!",

@@ -56,9 +56,17 @@ main {
     right: 15px;
 }
 
-.input-group input {
+.input-group .input {
     position: relative;
     right: 15px;
+}
+
+.input-group .input-2 {
+    width: 49%;
+}
+
+.input-group .cnpj, .municipal, .telefone {
+    margin-right: 15px;
 }
 
 .form-control {
@@ -99,6 +107,12 @@ a {
 }
 
 /* ================================== Media Queries - 1200px ============================================== */
+@media screen and (max-width: 1600px){
+    .input-group .input-2 {
+        width: 100%;
+    }
+}
+
 
 @media screen and (max-width: 1330px){
     
@@ -126,6 +140,11 @@ a {
     #form-recover {
         width: 100% ;
     }
+
+    .input-group .input-2 {
+        width: 100%;
+    }
+    
 
 }
 
