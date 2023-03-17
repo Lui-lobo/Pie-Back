@@ -9,7 +9,9 @@ import { RegisterAuthComponent } from './register-auth/register-auth.component';
 import { CabecalhoComponent } from '../area-nao-logada/cabecalho/cabecalho.component';
 import { RecoverPassComponent } from './recover-pass/recover-pass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardGuard } from './auth-guard.guard';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AuthGuardGuard } from './auth-guard.guard';
     RouterModule,
     AreaNaoLogadaModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserModule
   ],
   exports: [
     AuthComponent,

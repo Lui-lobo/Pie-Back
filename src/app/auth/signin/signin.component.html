@@ -27,6 +27,10 @@
                     />
                 </div>
 
+                <div class="alert alert-danger small email-alert w-100 rounded" *ngIf="email.invalid && formDir.submitted" role="alert">
+                    O Login é obrigatorio
+                </div>
+
                 <div class="col-12">
                     <label for="password" class="form-label">Digite sua senha</label>
                     <input
@@ -38,6 +42,18 @@
                     placeholder="Digite sua senha"
                     required
                     />
+                </div>
+
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="password.invalid && formDir.submitted" role="alert">
+                    A senha é obrigatoria
+                </div>
+
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="" role="alert">
+                    Este Usuario não existe
+                </div>
+
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="password.invalid && formDir.submitted" role="alert">
+                   Email ou Senha Incorretos
                 </div>
 
                 <button type="submit" action="#" class="entrar btn btn-primary col-12 mt-4 rounded">Entrar</button>
