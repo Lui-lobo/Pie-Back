@@ -3,20 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class UserLoginService {
+export class UserRecoverService {
 
-  constructor(private http: HttpClient) { 
-
-    let error = new Error()
-  }
+  constructor(private http: HttpClient) { }
 
   private baseApiUrl = environment.baseApiUrl;
-  private apiUrl = `${this.baseApiUrl}api/login`
+  private apiUrl = `${this.baseApiUrl}api/recoverPass`
 
-  authenticateUser(formData: FormData): Observable<FormData> {
+  recoverUser(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData, {headers:{skip:'true'}})
   }
 }

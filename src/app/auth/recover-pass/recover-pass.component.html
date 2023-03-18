@@ -5,7 +5,7 @@
     </div>
 
     <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-4 rounded-end">
-        <form action="#" id="form-recover" class="">
+        <form action="#" id="form-recover" (ngSubmit)="submit(this.recoverForm.value)" [formGroup]="recoverForm" #formDir="ngForm" class="">
             <div class="form-header mb-4 p-1">
                 <div class="title">
                     <h1 class="">Esqueceu a senha?</h1>
@@ -21,10 +21,20 @@
                     class="form-control"
                     id="email"
                     name="email"
+                    formControlName="email"
                     placeholder="Digite seu Email"
                     required
                     />
                 </div>
+
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="email.invalid && formDir.submitted" role="alert">
+                    É obrigatorio um Email
+                </div>
+
+                <div class="alert alert-success small email-alert w-100 mt-4 rounded" *ngIf="alert" role="alert">
+                    Email de recuperação enviado com sucesso
+                </div>
+
 
                 <button type="submit" action="#" class="entrar btn btn-primary col-12 mt-4 rounded">Enviar Email de Recuperação</button>
 
