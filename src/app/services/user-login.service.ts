@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,6 @@ export class UserLoginService {
   private apiUrl = `${this.baseApiUrl}api/login`
 
   authenticateUser(formData: FormData): Observable<FormData> {
-    return this.http.post<FormData>(this.apiUrl, formData, {headers:{skip:'true'}})
+    return this.http.post<FormData>(this.apiUrl, formData, {headers:{skip:'true', observe: 'response'}})
   }
 }
