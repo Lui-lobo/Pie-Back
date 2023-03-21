@@ -31,7 +31,11 @@
                     É obrigatorio um Email
                 </div>
 
-                <div class="alert alert-success small email-alert w-100 mt-4 rounded" *ngIf="alert" role="alert">
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="alert" role="alert">
+                    Email Inexistente
+                </div>
+
+                <div class="alert alert-success small email-alert w-100 mt-4 rounded" *ngIf="alertSucess" role="alert">
                     Email de recuperação enviado com sucesso
                 </div>
 

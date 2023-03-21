@@ -14,6 +14,7 @@ import { User } from '../user.interface';
 export class RecoverPassComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Isignin>();
   alert:boolean = false;
+  alertSucess:boolean = false;
 
   recoverForm!: FormGroup;
 
@@ -45,13 +46,16 @@ export class RecoverPassComponent implements OnInit {
 
       await this.userRecoverService.recoverUser(formData).subscribe((res) => {
         console.log(res)
+      }, (error) => {
+        console.log(error.status)
+        if(error.status == 404) {
+          this.alert = true
+          setTimeout(() => {
+          this.alert = false
+          }, 3000)
+        }
       })
-      
-      console.log(user.email)
-      console.log(this.email.value)
-      if(user.email) {
-        this.alert = true;
-      }
+
    
       this.onSubmit.emit(this.recoverForm.value);
     }

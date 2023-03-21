@@ -48,11 +48,11 @@
                     A senha é obrigatoria
                 </div>
 
-                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="" role="alert">
-                    Este Usuario não existe
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="alert && formDir.submitted" role="alert">
+                    Usuario inexistente
                 </div>
 
-                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="password.invalid && formDir.submitted" role="alert">
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="alertIncorrect && formDir.submitted" role="alert">
                    Email ou Senha Incorretos
                 </div>
 

@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { BrowserModule } from '@angular/platform-browser';
+import { RecoverPassEmailPageComponent } from './recover-pass-email-page/recover-pass-email-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
     CabecalhoAuthComponent,
     RegisterAuthComponent,
     RecoverPassComponent,
+    RecoverPassEmailPageComponent,
   ],
   imports: [
     CommonModule,

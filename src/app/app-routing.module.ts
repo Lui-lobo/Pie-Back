@@ -17,6 +17,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { RecoverPassComponent } from './auth/recover-pass/recover-pass.component';
 import { MultiStepFormComponent } from './area-logada/multi-step-form/multi-step-form.component';
 import { AuthGuardGuard } from './auth/auth-guard.guard';
+import { RecoverPassEmailPageComponent } from './auth/recover-pass-email-page/recover-pass-email-page.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,8 @@ const routes: Routes = [
     children:[
       {path: 'login', component: SigninComponent},
       {path: 'register', component: RegisterAuthComponent},
-      {path: 'recoverPass', component: RecoverPassComponent}
+      {path: 'recoverPass', component: RecoverPassComponent},
+      {path: 'recoverPassEmail', component: RecoverPassEmailPageComponent}
     ]
   }, 
   {

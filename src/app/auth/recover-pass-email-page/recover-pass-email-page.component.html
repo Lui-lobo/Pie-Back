@@ -1,0 +1,68 @@
+<div class="login-container vh-80 d-flex container-fluid p-0">
+
+    <div class="form-img d-flex w-50 justify-content-center align-items-center p-4 rounded-start">
+        <img  src="assets/img/ImgsForms/myNewPassword.svg" alt="entre e explore um avanço em sua educação" class="w-100"/>
+    </div>
+
+    <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-4 rounded-end">
+        <form action="#" id="form-recover" class="">
+            <div class="form-header mb-4 p-1">
+                <div class="title">
+                    <h1 class="">Falta pouco para recuperar sua senha !</h1>
+                </div>
+            </div>
+
+            <div class="input-group d-flex  ">
+    
+                <div class="w-100 input-register">
+                    <label for="password" class="form-label">Digite a nova Senha</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    formControlName="password"
+                    placeholder="Digite sua nova senha"
+                    required
+                    />
+                </div>
+                
+                <div class="w-100 input-register">
+                    <label for="passwordConf" class="form-label">Digite a senha Novamente</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="passwordConf"
+                    name="passwordConf"
+                    formControlName="passwordConf"
+                    placeholder="Digite a senha Novamente"
+                    required
+                    />
+                </div>
+
+
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="" role="alert">
+                    É obrigatorio um Email
+                </div>
+
+                <div class="alert alert-success small email-alert w-100 mt-4 rounded" *ngIf="" role="alert">
+                    Email de recuperação enviado com sucesso
+                </div>
+
+
+                <button type="submit" action="#" class="entrar btn btn-primary col-12 mt-4 rounded">Cadastrar nova Senha</button>
+
+                <div class="cadastrar-btn d-flex flex-row justify-content-between align-items-center mt-4 w-100">
+                    
+                    <div>
+                        <label class="me-5">Tudo certo? <a href="/auth/login" class="link">Entre aqui</a>
+                        </label>
+                    </div>
+                    
+                    <a href="/auth/login"><button type="button" class=" btn btn-info">Login</button></a>
+                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
