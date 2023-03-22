@@ -1,18 +1,27 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component ,EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { param } from 'jquery';
+import { UserRecoverService } from 'src/app/services/user-recover.service';
+import { Isignin } from '../signin/signin.interface';
 
 
 @Component({
   selector: 'app-recover-pass-email-page',
   templateUrl: './recover-pass-email-page.component.html',
-  styleUrls: ['./recover-pass-email-page.component.scss']
+  styleUrls: ['./recover-pass-email-page.component.scss'],
+  providers: [UserRecoverService, {provide: 'UserLogin', useValue: ''}]
 })
 export class RecoverPassEmailPageComponent {
+  @Output() onSubmit = new EventEmitter<Isignin>()
 
   UserLogin: string;
   Token: string;
 
-  constructor(private route: ActivatedRoute) {
+  resetForm!: FormGroup;
+
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private userRecoverService: UserRecoverService) {
 
   }
 
@@ -26,6 +35,44 @@ export class RecoverPassEmailPageComponent {
       console.log(this.Token)
     })
 
+    this.resetForm = new FormGroup({
+      password: new FormControl('', [Validators.required]),
+      passwordConf: new FormControl('', [Validators.required]),
+    })
+
+  }
+
+  get password() {
+    return this.resetForm.get('password')!
+  }
+
+  get passwordConf() {
+    return this.resetForm.get('passwordConf')!
+  }
+
+  async submit(user: Isignin) {
+    if(this.resetForm.invalid) {
+      console.log('formulario invalido')
+      return;
+    } else {
+      console.log(this.resetForm.value)
+
+      const formData = new FormData();
+
+      formData.append('password', user.password)
+      let params = new URLSearchParams();
+      params.append('UserLogin', this.UserLogin)
+      formData.append('params', this.UserLogin)
+
+
+      await this.userRecoverService.resetPass(formData).subscribe((res) => {
+        console.log(res)
+      }, (error) => {
+        console.log(error)
+      })
+
+      this.onSubmit.emit(this.resetForm.value);
+    }
   }
 
 }

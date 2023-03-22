@@ -5,7 +5,7 @@
     </div>
 
     <div class="form d-flex w-100 justify-content-center align-items-center flex-column bg-white p-4 rounded-end">
-        <form action="#" id="form-recover" class="">
+        <form action="#" id="form-recover" (ngSubmit)="submit(this.resetForm.value)" [formGroup]="resetForm" #formDir="ngForm" class="">
             <div class="form-header mb-4 p-1">
                 <div class="title">
                     <h1 class="">Falta pouco para recuperar sua senha !</h1>
