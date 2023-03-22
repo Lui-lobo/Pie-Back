@@ -46,9 +46,13 @@ export class RecoverPassComponent implements OnInit {
 
       await this.userRecoverService.recoverUser(formData).subscribe((res) => {
         console.log(res)
+        this.alertSucess = true
+        setTimeout(() => {
+          this.alertSucess = false
+          }, 3000)
       }, (error) => {
         console.log(error.status)
-        if(error.status == 404) {
+        if(error.status == 401) {
           this.alert = true
           setTimeout(() => {
           this.alert = false

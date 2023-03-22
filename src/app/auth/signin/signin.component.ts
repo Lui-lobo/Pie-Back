@@ -60,18 +60,18 @@ export class SigninComponent implements OnInit {
         console.log(res);
         let response = JSON.stringify(res)
         localStorage.setItem('Token', JSON.parse(response).token)
-      },(error) => {
+      }, (error) => {
         console.log(error.status)
         if(error.status == 404) {
           this.alert = true
           setTimeout(() => {
             this.alert = false
-          }, 3000)
+          }, 5000)
         } else if (error.status == 401) {
           this.alertIncorrect = true
           setTimeout(() => {
             this.alertIncorrect = false
-          }, 3000)
+          }, 5000)
         }
       });
 
