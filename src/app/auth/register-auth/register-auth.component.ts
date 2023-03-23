@@ -15,10 +15,8 @@ export class RegisterAuthComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  tipoUsers = [
-    {id: '1', name: 'Usuario Comum'},
-    {id: '2',name: 'Instituição'}
-  ]
+  tipoUsers = [{id: '1', name: 'Usuario Comum'}, {id: '2',name: 'Instituição'}]
+  selected:string = 'Instituição' 
 
   public typeUserId:number;
 

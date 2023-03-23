@@ -87,9 +87,10 @@
                 <div class="w-100 p-3">
                     <label for="idTipoUser" class="form-label">Selecione o seu Tipo de Usuario</label>
 
-                    <select class="form-select p-2" placeholder="Selecione o seu tipo de Usuario" formControlName="idTipoUser" id="idTipoUser" [(ngModel)]="typeUserId">
-                        <option *ngFor="let n of tipoUsers" value="{{ n.id }}">{{ n.name }}</option>
+                    <select class="form-select p-2" placeholder="Selecione o seu tipo de Usuario" formControlName="idTipoUser" id="idTipoUser" [(ngModel)]="selected">
+                        <option *ngFor="let n of tipoUsers" value="{{ n.id }}" >{{ n.name }}</option>
                     </select>
+                    {{ selected }}
                    
                 </div>
                 

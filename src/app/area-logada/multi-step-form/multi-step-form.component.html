@@ -174,7 +174,43 @@
                         </div>
 
                         <div class="d-flex flex-row-reverse w-100">
-                            <button type="submit" action="#" class="entrar btn btn-primary mt-4 w-50" >Proximo</button>
+                            <button type="#" action="#" class="entrar btn btn-primary mt-4 w-50" (click)="next()" >Proximo</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="step-1-wrapper" *ngIf="steps==3" >
+
+                <div class="form-header mb-4">
+                    <div class="title">
+                        <h1 class="">Este é o fim</h1>
+                    </div>
+                </div>
+
+                <div class="input-group p-4 w-100">
+                    <div class="col-12">
+                        <label for="plano" class="form-label">Escolha um Plano</label>
+                        <select
+                        type="text"
+                        class="form-control"
+                        id="plano"
+                        name="plano"
+                        formControlName="plano"
+                        placeholder="Escolha um Plano"
+                        required
+                        >
+                        <option *ngFor="let n of planos">{{ n }}</option>
+                        </select>
+                    </div>
+
+                    <div class="w-100 col-12 d-flex">
+                        <div class="d-flex flex-row w-100">
+                            <button type="#" action="#" class="btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
+                        </div>
+
+                        <div class="d-flex flex-row-reverse w-100">
+                            <button type="submit" action="#" class="entrar btn btn-primary mt-4 w-50" >Enviar</button>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Instituicao } from './Instituicao.interface';
+import { Instituicao } from './instituicao.interface';
 
 import { PrimeiroAcessoService } from 'src/app/services/areaLogada/PrimeiroAcesso/primeiro-acesso.service';
 
@@ -14,6 +14,8 @@ export class MultiStepFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Instituicao>();
 
   multiStep!: FormGroup;
+
+  planos = ['plano-1', 'plano-2', 'plano-3'];
 
   title = "Formulario de Varias etapas de cadastro de instituição";
   steps: any = 0;
@@ -35,7 +37,8 @@ export class MultiStepFormComponent implements OnInit {
       //contatosInstituicao: new FormGroup ({
         emailInstituicao: new FormControl(''),
         telefoneComercial1: new FormControl(''),
-        telefoneComercial2: new FormControl('')
+        telefoneComercial2: new FormControl(''),
+        plano: new FormControl('')
       //})
     })
   }
@@ -74,6 +77,10 @@ export class MultiStepFormComponent implements OnInit {
 
   get telefoneComercial2() {
     return this.multiStep.get('telefoneComercial2')!;
+  }
+
+  get plano() {
+    return this.multiStep.get('plano')
   }
 
   async submit(instituicao: Instituicao) {
@@ -122,6 +129,9 @@ export class MultiStepFormComponent implements OnInit {
       const contatosInstituicaoTelefone2 = new FormData();
       contatosInstituicaoTelefone2.append('contato', this.telefoneComercial2.value);
 
+      const pagamentoInstituicao = new FormData();
+      pagamentoInstituicao.append('plano', this.plano?.value);
+
         /**
        * Fim da sessão de inserção de contatos Individuais da instituição
        */
@@ -167,7 +177,7 @@ export class MultiStepFormComponent implements OnInit {
   next() {
     this.steps = this.steps +1;
 
-    if(this.steps == 3) {
+    if(this.steps == 4) {
       this.steps = this.steps -1;
     } 
   }

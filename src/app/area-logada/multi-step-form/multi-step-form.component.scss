@@ -1,3 +1,7 @@
+.pagina-toda {
+    background-color: #4B2D94 !important;
+}
+
 .cabec__nav {
     position: static !important;
 }
@@ -10,6 +14,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #4B2D94 !important;
+    
 }
 
 main {
