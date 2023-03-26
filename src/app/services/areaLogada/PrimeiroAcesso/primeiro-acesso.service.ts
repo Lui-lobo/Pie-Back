@@ -15,6 +15,7 @@ export class PrimeiroAcessoService {
   private apiUrlDocuments = `${this.baseApiUrl}api/documentos`
   private apiUrlInstituicao = `${this.baseApiUrl}api/instituicao`
   private apiUrlContatos = `${this.baseApiUrl}api/contatos`
+  private apiUrlPedidos = `${this.baseApiUrl}api/pedido`
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +29,9 @@ export class PrimeiroAcessoService {
 
   createContato(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrlContatos, formData)
+  }
+
+  createPedido(formData: FormData): Observable<FormData> {
+    return this.http.post<FormData>(this.apiUrlPedidos, formData)
   }
 }

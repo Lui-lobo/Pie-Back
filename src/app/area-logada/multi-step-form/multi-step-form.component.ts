@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Instituicao } from './instituicao.interface';
 
@@ -20,25 +21,25 @@ export class MultiStepFormComponent implements OnInit {
   title = "Formulario de Varias etapas de cadastro de instituição";
   steps: any = 0;
 
-  constructor(private PrimeiroAcessoService: PrimeiroAcessoService) { }
+  constructor(private PrimeiroAcessoService: PrimeiroAcessoService, private router: Router) { }
 
   ngOnInit(): void {
     this.multiStep = new FormGroup({
       //detalhesInstituicao: new FormGroup ({
-        nameInstituicao: new FormControl(''),
-        ceo: new FormControl(''),
+        nameInstituicao: new FormControl('', [Validators.required]),
+        ceo: new FormControl('', [Validators.required]),
       //}),
       //documentosInstituicao: new FormGroup ({
-        cnpj: new FormControl(''),
-        razaoSocial: new FormControl(''),
-        inscricaoMunicipal: new FormControl(''),
-        autorizacaoMec: new FormControl(''),
+        cnpj: new FormControl('', [Validators.required]),
+        razaoSocial: new FormControl('', [Validators.required]),
+        inscricaoMunicipal: new FormControl('', [Validators.required]),
+        autorizacaoMec: new FormControl('', [Validators.required]),
       //}),
       //contatosInstituicao: new FormGroup ({
-        emailInstituicao: new FormControl(''),
-        telefoneComercial1: new FormControl(''),
+        emailInstituicao: new FormControl('', [Validators.required]),
+        telefoneComercial1: new FormControl('', [Validators.required]),
         telefoneComercial2: new FormControl(''),
-        plano: new FormControl('')
+        plano: new FormControl('', [Validators.required])
       //})
     })
   }
@@ -130,7 +131,7 @@ export class MultiStepFormComponent implements OnInit {
       contatosInstituicaoTelefone2.append('contato', this.telefoneComercial2.value);
 
       const pagamentoInstituicao = new FormData();
-      pagamentoInstituicao.append('plano', this.plano?.value);
+      pagamentoInstituicao.append('nome_pedido', this.plano?.value);
 
         /**
        * Fim da sessão de inserção de contatos Individuais da instituição
@@ -170,8 +171,13 @@ export class MultiStepFormComponent implements OnInit {
       console.log(res);
      })
 
-    
+    await this.PrimeiroAcessoService.createPedido(pagamentoInstituicao).subscribe((res) => {
+      console.log(res);
+    })
+
      this.onSubmit.emit(this.multiStep.value);
+
+     this.router.navigate(['/arealogada/homeinterno'])
   }
 
   next() {

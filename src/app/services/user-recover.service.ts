@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit, Inject } from '@angular/core';
 import { param } from 'jquery';
 import { Observable } from 'rxjs';
@@ -11,17 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserRecoverService {
 
-  //UserLogin:string;
+  UserLogin:string;
   Token: string;
 
-  constructor(@Inject('UserLogin') private UserLogin: string,private http: HttpClient, private route: ActivatedRoute ) { 
+  constructor(private http: HttpClient, private route: ActivatedRoute ) { 
 
   }
 
   ngOnInit():void {
     this.route.queryParams.subscribe(params => {
       console.log(params)
-      //this.UserLogin = params['UserLogin']
+      this.UserLogin = params['UserLogin']
     })
  
   }
@@ -37,6 +37,6 @@ export class UserRecoverService {
   }
 
   resetPass(formData: FormData): Observable<FormData> {
-    return this.http.post<FormData>(this.apiUrlReset, formData,  {headers:{skip:'true'}, params:{UserLogin:this.UserLogin, Token:this.Token}})
+    return this.http.post<FormData>(this.apiUrlReset, formData,  {headers:{skip:'true'}, params:{}})
   }
 }

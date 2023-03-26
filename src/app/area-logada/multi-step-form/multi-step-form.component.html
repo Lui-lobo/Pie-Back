@@ -28,6 +28,11 @@
                         />
                     </div>
 
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="nameInstituicao.invalid && formDir.submitted" role="alert">
+                        É obrigatorio nome para instituição
+                    </div>
+    
+
                     <div class="col-12 m-3 input">
                         <label for="password" class="form-label">Digite o Nome do Dono/Gestor</label>
                         <input
@@ -39,6 +44,10 @@
                         placeholder="Digite o CNPJ da instituição"
                         required
                         />
+                    </div>
+                    
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="ceo.invalid && formDir.submitted" role="alert">
+                        É obrigatorio o nome do Dono Da instituição
                     </div>
                     
                     <div class="d-flex flex-row-reverse w-100 " >
@@ -82,6 +91,15 @@
                         />
                     </div>
 
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido" *ngIf="cnpj.invalid && formDir.submitted" role="alert">
+                        É obrigatorio o cnpj da instituição
+                    </div>
+
+
+                    <div class="col-6 input-2 mr-1 alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido" *ngIf="razaoSocial.invalid && formDir.submitted" role="alert">
+                        É obrigatorio a razão social da instituição
+                    </div>
+
                     <div class="col-6 input-2 mr-1 municipal">
                         <label for="inscricaoMunicipal" class="form-label">Digite sua Inscrição Municipal</label>
                         <input
@@ -95,6 +113,7 @@
                         />
                     </div>
 
+                    
                     <div class="col-6 input-2">
                         <label for="autorizacaoMec" class="form-label">Digite sua Autorização do MEC</label>
                         <input
@@ -108,12 +127,21 @@
                         />
                     </div>
 
-                    <div class="w-100 col-12 d-flex">
-                        <div class="d-flex flex-row w-50">
+
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido" *ngIf="inscricaoMunicipal.invalid && formDir.submitted" role="alert">
+                        É obrigatorio a Inscrição Municipal da instituição
+                    </div>
+
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido" *ngIf="autorizacaoMec.invalid && formDir.submitted" role="alert">
+                        É obrigatorio a autorização do MEC da instituição
+                    </div>
+
+                    <div class="w-100 col-12 d-flex md-flex-column">
+                        <div class="d-flex flex-row w-50 md-col-12 md-flex-column">
                             <button type="#" action="#" class="btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
                         </div>
 
-                        <div class="d-flex flex-row-reverse w-50">
+                        <div class="d-flex flex-row-reverse w-50 md-col-12">
                             <button type="#" action="#" class="entrar btn btn-primary mt-4 w-50" (click)="next()">Proximo</button>
                         </div>
                     </div>
@@ -142,6 +170,10 @@
                         />
                     </div>
 
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="emailInstituicao.invalid && formDir.submitted" role="alert">
+                        É obrigatorio inserir um email para a instituição
+                    </div>
+
                     <div class="col-6 input-2 telefone">
                         <label for="password" class="form-label">Digite o Telefone Comercial</label>
                         <input
@@ -166,6 +198,10 @@
                         placeholder="Digite caso queira um segundo telefone"
                         required
                         />
+                    </div>
+
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded " *ngIf="telefoneComercial1.invalid && formDir.submitted" role="alert">
+                        É obrigatorio inserir pelo menos um telefone para a instituição
                     </div>
 
                     <div class="w-100 col-12 d-flex">
@@ -204,6 +240,10 @@
                         </select>
                     </div>
 
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="telefoneComercial1.invalid && formDir.submitted" role="alert">
+                        É obrigatorio escolher o plano para a instituição
+                    </div>
+
                     <div class="w-100 col-12 d-flex">
                         <div class="d-flex flex-row w-100">
                             <button type="#" action="#" class="btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
@@ -219,7 +259,5 @@
 
         </form>
 
-        <br>
-        <pre>{{this.multiStep.value | json }} </pre>
     </div>
 </div>

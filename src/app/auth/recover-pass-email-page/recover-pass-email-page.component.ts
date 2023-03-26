@@ -10,8 +10,7 @@ import { Isignin } from '../signin/signin.interface';
 @Component({
   selector: 'app-recover-pass-email-page',
   templateUrl: './recover-pass-email-page.component.html',
-  styleUrls: ['./recover-pass-email-page.component.scss'],
-  providers: [UserRecoverService, {provide: 'UserLogin', useValue: ''}]
+  styleUrls: ['./recover-pass-email-page.component.scss']
 })
 export class RecoverPassEmailPageComponent {
   @Output() onSubmit = new EventEmitter<Isignin>()
@@ -62,7 +61,7 @@ export class RecoverPassEmailPageComponent {
       formData.append('password', user.password)
       let params = new URLSearchParams();
       params.append('UserLogin', this.UserLogin)
-      formData.append('params', this.UserLogin)
+      formData.set('UserLogin', this.UserLogin)
 
 
       await this.userRecoverService.resetPass(formData).subscribe((res) => {
