@@ -92,6 +92,11 @@ main {
     font-weight: 700;
 }
 
+.retornar {
+    padding: 0.8rem;
+    font-weight: 700;
+}
+
 .form-control:focus::placeholder {
     font-weight: 600;
     opacity: 1;
@@ -101,6 +106,11 @@ main {
 
 .entrar:hover {
     background: #5b53d8;
+    color: #000;
+}
+
+.retornar:hover {
+    background: rgb(153, 37, 37);
     color: #000;
 }
 
@@ -183,6 +193,17 @@ a {
 
     .entrar {
         width: 100% !important;
+    }
+
+    .botoes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .retornar {
+        width: 100% !important;
+        align-items: center;
+        justify-content: center;
     }
 
 }
