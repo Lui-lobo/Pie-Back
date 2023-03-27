@@ -14,9 +14,11 @@ export class RegisterAuthComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<User>();
 
   registerForm!: FormGroup;
+  
+  alertSucess:boolean;
 
   tipoUsers = [{id: '1', name: 'Usuario Comum'}, {id: '2',name: 'Instituição'}]
-  selected:string = 'Instituição' 
+  selected:string = '2' 
 
   public typeUserId:number;
 
@@ -61,8 +63,6 @@ export class RegisterAuthComponent implements OnInit {
 
   async createHandler(user: User) {
     
- 
-    
   }
 
   async submit(user: User) {
@@ -79,12 +79,29 @@ export class RegisterAuthComponent implements OnInit {
       formData.append('password', user.password);
       formData.append('HashPass', user.HashPass);
       formData.append('idTipoUser', user.idTipoUser);
-  
-      await this.userRegisterService.createUser(formData).subscribe((res) => {
-        console.log(res);
-      });
 
-      this.onSubmit.emit(this.registerForm.value);
+      if(this.PassWord.value !== this.confPassWord.value || this.Login.value !== this.confLogin.value) {
+        return;
+      } else {
+        await this.userRegisterService.createUser(formData).subscribe((res) => {
+          console.log(res);
+          this.alertSucess = true
+          setTimeout(() => {
+            this.alertSucess = false
+            }, 5000)
+        }, (error) => {
+          console.log(error.status)
+        if(error.status == 404) {
+            console.log('erro 404')
+          }
+        });
+    
+        this.onSubmit.emit(this.registerForm.value);
+      }
+
+   
+  
+ 
   }
 
 }

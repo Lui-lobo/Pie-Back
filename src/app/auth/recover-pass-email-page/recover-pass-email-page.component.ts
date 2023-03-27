@@ -17,6 +17,7 @@ export class RecoverPassEmailPageComponent {
 
   UserLogin: string;
   Token: string;
+  alertSuccess:boolean;
 
   resetForm!: FormGroup;
 
@@ -64,13 +65,23 @@ export class RecoverPassEmailPageComponent {
       formData.set('UserLogin', this.UserLogin)
 
 
-      await this.userRecoverService.resetPass(formData).subscribe((res) => {
-        console.log(res)
-      }, (error) => {
-        console.log(error)
-      })
-
-      this.onSubmit.emit(this.resetForm.value);
+      if(this.password.value !== this.passwordConf.value) {
+        console.log('as senhas devem ser iguais')
+      } else {
+        await this.userRecoverService.resetPass(formData).subscribe((res) => {
+          console.log(res) 
+          this.alertSuccess = true
+          setTimeout(() => {
+            this.alertSuccess = false
+              
+            this.router.navigate(['/auth/login'])
+            }, 5000)
+        }, (error) => {
+          console.log(error)
+        })
+  
+        this.onSubmit.emit(this.resetForm.value);
+      }
     }
   }
 

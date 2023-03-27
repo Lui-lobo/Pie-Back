@@ -91,7 +91,7 @@
                         />
                     </div>
 
-                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido" *ngIf="cnpj.invalid && formDir.submitted" role="alert">
+                    <div class="col-6 alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido mais-pra-direita" *ngIf="cnpj.invalid && formDir.submitted" role="alert">
                         É obrigatorio o cnpj da instituição
                     </div>
 
@@ -128,7 +128,7 @@
                     </div>
 
 
-                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido" *ngIf="inscricaoMunicipal.invalid && formDir.submitted" role="alert">
+                    <div class="alert alert-danger small email-alert w-100 mt-4 rounded alert-diminuido mais-pra-direita" *ngIf="inscricaoMunicipal.invalid && formDir.submitted" role="alert">
                         É obrigatorio a Inscrição Municipal da instituição
                     </div>
 
@@ -136,12 +136,12 @@
                         É obrigatorio a autorização do MEC da instituição
                     </div>
 
-                    <div class="w-100 col-12 d-flex md-flex-column">
-                        <div class="d-flex flex-row w-50 md-col-12 md-flex-column">
+                    <div class="w-100 col-12 d-flex col-md-12 flex-md-column">
+                        <div class="d-flex flex-row w-100 col-md-12">
                             <button type="#" action="#" class="btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
                         </div>
 
-                        <div class="d-flex flex-row-reverse w-50 md-col-12">
+                        <div class="d-flex flex-row-reverse w-100 col-md-12">
                             <button type="#" action="#" class="entrar btn btn-primary mt-4 w-50" (click)="next()">Proximo</button>
                         </div>
                     </div>
@@ -204,12 +204,12 @@
                         É obrigatorio inserir pelo menos um telefone para a instituição
                     </div>
 
-                    <div class="w-100 col-12 d-flex">
-                        <div class="d-flex flex-row w-100">
-                            <button type="#" action="#" class="btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
+                    <div class="w-100 col-12 d-flex col-md-12 flex-md-column">
+                        <div class="d-flex flex-row w-100 col-md-12">
+                            <button type="#" action="#" class="entrar btn btn-danger mt-4 w-50" (click)="previous()">Retornar</button>
                         </div>
 
-                        <div class="d-flex flex-row-reverse w-100">
+                        <div class="d-flex flex-row-reverse w-100 col-md-12 ">
                             <button type="#" action="#" class="entrar btn btn-primary mt-4 w-50" (click)="next()" >Proximo</button>
                         </div>
                     </div>

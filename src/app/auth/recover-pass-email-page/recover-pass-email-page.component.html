@@ -26,6 +26,10 @@
                     required
                     />
                 </div>
+
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="password.invalid && formDir.submitted" role="alert">
+                    É obrigatorio a inserção de uma senha
+                </div>
                 
                 <div class="w-100 input-register">
                     <label for="passwordConf" class="form-label">Digite a senha Novamente</label>
@@ -40,13 +44,12 @@
                     />
                 </div>
 
-
-                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="" role="alert">
-                    É obrigatorio um Email
+                <div class="alert alert-danger small email-alert w-100 mt-4 rounded" *ngIf="password.value !== passwordConf.value && formDir.submitted" role="alert">
+                    As Senhas devem ser iguais
                 </div>
 
-                <div class="alert alert-success small email-alert w-100 mt-4 rounded" *ngIf="" role="alert">
-                    Email de recuperação enviado com sucesso
+                <div class="alert alert-success small email-alert w-100 mt-4 rounded" *ngIf="alertSuccess" role="alert">
+                    Senha alterada com sucesso ( Você será redirecionado para a tela de Login )
                 </div>
 
 
